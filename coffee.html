@@ -43,22 +43,61 @@
     </div>
 </div>
 
+<!-- this is going to allow us to run jQuery -->
+<script src="http://code.jquery.com/jquery.js"></script>
+
 <script>
+    
+    function makeCoffee(drinkType) {  
+        if (drinkType === 'espresso'){
+            drinkTotal = drinkTotal + 3.25;
+        } else if (drinkType === 'latte'){
+            drinkTotal = drinkTotal + 4.15;
+        } else if (drinkType === 'hotChocolate'){
+            drinkTotal = drinkTotal + 2.50;
+        }
 
-    var myImage = document.getElementById("coffee_image");
-    var myRevenueMessage = document.getElementById("revenue");
-
-    myImage.setAttribute('src', "static/coffee_beans.jpg");
-
-    myImage.addEventListener('click', function () {
-        return makeCoffee("brew");
-    });
-
-    function makeCoffee() {
-         myImage.src = "static/coffee_machine.jpg";
-         setTimeout(function() { myImage.setAttribute('src', "static/coffee_mug.jpg"); }, 500);
-         setTimeout(function() { myImage.setAttribute('src', "static/coffee_beans.jpg"); }, 1500);
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
+        console.log(drinkTotal);
     }
+
+    function makeOrder(drinksOrdered){
+         // myImage.fadeOut(3000);
+        
+        // setTimeout(function () {myImage.attr("src", "static/coffee_mug.jpg").fadeIn(3000);}, 3001);
+        
+        // setTimeout(function (){myImage.fadeOut(3000);}, 6001);
+        
+        // setTimeout(function (){myImage.attr("src", "static/coffee_beans.jpg").fadeIn(3000);}, 9001);
+    }
+
+
+    myImage = $("#coffee_image");
+    myImage.attr("src", "static/coffee_beans.jpg");
+
+    myRevenueMessage = $("#revenue");
+
+    var drinksOrdered = [];
+    var drinkTotal = 0;
+
+
+    myImage.click(makeOrder);
+    
+    //event listner on espresso
+    espresso = $("#espresso");
+    espresso.click(function(){return makeCoffee("espresso");});
+    
+    //event listner on latte
+    latte = $('#latte');
+    latte.click(function(){ return makeCoffee("latte");});
+    
+    //event listner on hot chocolat
+    hotChocolate = $("#hot-chocolate");
+    hotChocolate.click(function(){return makeCoffee("hotChocolate");});
+
+
+    console.log(drinksOrdered);
 
 </script>
 
