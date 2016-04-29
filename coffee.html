@@ -62,14 +62,14 @@
         console.log(drinkTotal);
     }
 
-    function makeOrder(drinksOrdered){
-         // myImage.fadeOut(3000);
+    function makeOrder(drinksOrdered, drinkTotal){
+         myImage.fadeOut(3000);
         
-        // setTimeout(function () {myImage.attr("src", "static/coffee_mug.jpg").fadeIn(3000);}, 3001);
+        setTimeout(function () {myImage.attr("src", "static/coffee_mug.jpg").fadeIn(3000);}, 3001);
         
-        // setTimeout(function (){myImage.fadeOut(3000);}, 6001);
+        setTimeout(function (){myImage.fadeOut(3000);}, 6001);
         
-        // setTimeout(function (){myImage.attr("src", "static/coffee_beans.jpg").fadeIn(3000);}, 9001);
+        setTimeout(function (){myImage.attr("src", "static/coffee_beans.jpg").fadeIn(3000);}, 9001);
     }
 
 
@@ -82,7 +82,7 @@
     var drinkTotal = 0;
 
 
-    myImage.click(makeOrder);
+    myImage.click(function(){return makeOrder(drinksOrdered, drinkTotal);})
     
     //event listner on espresso
     espresso = $("#espresso");
